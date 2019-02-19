@@ -2,7 +2,7 @@ api:
   enabled: true
   key: B508534ED20348F090B4D0AD637D3660
 appearance:
-  name: Julia Pro Dual
+  name: Julia Pro Dual ABL
 devel:
   cache:
     enabled: true
@@ -83,8 +83,8 @@ printerProfiles:
       sharedNozzle: false
     heatedBed: true
     id: _default
-    model: Fracktal Works Julia Pro Series
-    name: Julia Pro Dual
+    model: Fracktal Works Julia Pro ABL Series
+    name: Julia Pro Dual ABL
     volume:
       custom_box: false
       depth: 395.0
