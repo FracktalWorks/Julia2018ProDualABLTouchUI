@@ -385,12 +385,14 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         self.quickStep1NextButton.clicked.connect(self.quickStep2)
         self.quickStep2NextButton.clicked.connect(self.quickStep3)
         self.quickStep3NextButton.clicked.connect(self.quickStep4)
-        self.quickStep4NextButton.clicked.connect(self.doneStep)
+        self.quickStep4NextButton.clicked.connect(self.quickStep5)
+        self.quickStep5NextButton.clicked.connect(self.doneStep)
         self.nozzleHeightStep1NextButton.clicked.connect(self.doneStep)
         self.quickStep1CancelButton.pressed.connect(self.cancelStep)
         self.quickStep2CancelButton.pressed.connect(self.cancelStep)
         self.quickStep3CancelButton.pressed.connect(self.cancelStep)
         self.quickStep4CancelButton.pressed.connect(self.cancelStep)
+        self.quickStep5CancelButton.pressed.connect(self.cancelStep)
         self.nozzleHeightStep1CancelButton.pressed.connect(self.cancelStep)
         
         self.toolOffsetXSetButton.pressed.connect(self.setToolOffsetX)
@@ -1619,9 +1621,11 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         goes to position where leveling screws can be opened
         :return:
         '''
-        octopiclient.gcode(command='M104 S200')
-        octopiclient.gcode(command='M420 S0')  # Dissable mesh bed leveling for good measure
         self.stackedWidget.setCurrentWidget(self.quickStep1Page)
+        octopiclient.gcode(command='M104 T0 S200')
+        octopiclient.gcode(command='M104 T1 S200')
+        octopiclient.gcode(command='M420 S0')  # Dissable mesh bed leveling for good measure
+        octopiclient.gcode(command='T0')
         octopiclient.home(['x', 'y', 'z'])
         octopiclient.jog(x=40, y=40, absolute=True, speed=2000)
 
@@ -1653,6 +1657,14 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         octopiclient.jog(z=10, absolute=True, speed=1500)
         octopiclient.jog(x=calibrationPosition['X3'], y=calibrationPosition['Y3'], absolute=True, speed=2000)
         octopiclient.jog(z=0, absolute=True, speed=1500)
+
+    def quickStep5(self):
+        '''
+        Nozzle Z offset calc
+        '''
+        self.stackedWidget.setCurrentWidget(self.quickStep5Page)
+        octopiclient.jog(z=15, absolute=True, speed=1500)
+        octopiclient.gcode(command='M272 S')
 
     def nozzleHeightStep1(self):
         self.stackedWidget.setCurrentWidget(self.nozzleHeightStep1Page)

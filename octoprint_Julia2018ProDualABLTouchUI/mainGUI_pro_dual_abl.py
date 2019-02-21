@@ -3554,6 +3554,82 @@ class Ui_MainWindow(object):
         self.calibrateLabel_12.setWordWrap(True)
         self.calibrateLabel_12.setObjectName(_fromUtf8("calibrateLabel_12"))
         self.stackedWidget.addWidget(self.quickStep4Page)
+        self.quickStep5Page = QtGui.QWidget()
+        self.quickStep5Page.setObjectName(_fromUtf8("quickStep5Page"))
+        self.quickStep5CancelButton = QtGui.QPushButton(self.quickStep5Page)
+        self.quickStep5CancelButton.setGeometry(QtCore.QRect(240, 260, 241, 61))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(13)
+        self.quickStep5CancelButton.setFont(font)
+        self.quickStep5CancelButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}\n"
+"\n"
+"QPushButton:focus {\n"
+"    outline: none;\n"
+"}"))
+        self.quickStep5CancelButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep5CancelButton.setObjectName(_fromUtf8("quickStep5CancelButton"))
+        self.calibrateLabel_13 = QtGui.QLabel(self.quickStep5Page)
+        self.calibrateLabel_13.setGeometry(QtCore.QRect(10, 10, 471, 61))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setWeight(50)
+        self.calibrateLabel_13.setFont(font)
+        self.calibrateLabel_13.setStyleSheet(_fromUtf8("color: rgb(255, 255, 255);"))
+        self.calibrateLabel_13.setWordWrap(True)
+        self.calibrateLabel_13.setObjectName(_fromUtf8("calibrateLabel_13"))
+        self.quickStep5NextButton = QtGui.QPushButton(self.quickStep5Page)
+        self.quickStep5NextButton.setGeometry(QtCore.QRect(0, 260, 241, 61))
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Gotham"))
+        font.setPointSize(13)
+        self.quickStep5NextButton.setFont(font)
+        self.quickStep5NextButton.setStyleSheet(_fromUtf8("QPushButton {\n"
+"     border: 1px solid rgb(87, 87, 87);\n"
+"    background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0.188, stop:0 rgba(180, 180, 180, 255), stop:1 rgba(255, 255, 255, 255));\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}\n"
+"\n"
+"QPushButton:focus {\n"
+"    outline: none;\n"
+"}"))
+        self.quickStep5NextButton.setIconSize(QtCore.QSize(40, 40))
+        self.quickStep5NextButton.setObjectName(_fromUtf8("quickStep5NextButton"))
+        self.stackedWidget.addWidget(self.quickStep5Page)
         self.nozzleHeightStep1Page = QtGui.QWidget()
         self.nozzleHeightStep1Page.setObjectName(_fromUtf8("nozzleHeightStep1Page"))
         self.nozzleHeightStep1NextButton = QtGui.QPushButton(self.nozzleHeightStep1Page)
@@ -6834,7 +6910,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.mainApplication)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(22)
+        self.stackedWidget.setCurrentIndex(0)
         self.controlTabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -6943,6 +7019,9 @@ class Ui_MainWindow(object):
         self.quickStep4NextButton.setText(_translate("MainWindow", "Next", None))
         self.quickStep4CancelButton.setText(_translate("MainWindow", "Cancel", None))
         self.calibrateLabel_12.setText(_translate("MainWindow", "Repeat the same using the back leveling screw", None))
+        self.quickStep5CancelButton.setText(_translate("MainWindow", "Cancel", None))
+        self.calibrateLabel_13.setText(_translate("MainWindow", "Calculating nozzle Z offsets. Press next when done.", None))
+        self.quickStep5NextButton.setText(_translate("MainWindow", "Next", None))
         self.nozzleHeightStep1NextButton.setText(_translate("MainWindow", "Next", None))
         self.nozzleHeightStep1CancelButton.setText(_translate("MainWindow", "Cancel", None))
         self.calibrateLabel_19.setText(_translate("MainWindow", "Move the bed up or down to the Second Nozzle , testing height using paper ", None))
