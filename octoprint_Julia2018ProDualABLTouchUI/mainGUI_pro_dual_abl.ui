@@ -219,7 +219,7 @@ background-color: rgb(40, 40, 40);</string>
         <x>20</x>
         <y>20</y>
         <width>171</width>
-        <height>31</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="font">
@@ -241,22 +241,22 @@ background-color: rgb(40, 40, 40);</string>
       <property name="geometry">
        <rect>
         <x>220</x>
-        <y>70</y>
+        <y>55</y>
         <width>241</width>
-        <height>51</height>
+        <height>36</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Gotham</family>
-        <pointsize>16</pointsize>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="styleSheet">
        <string notr="true">color: white;
 background-color: rgb(40, 40, 40);
 selection-color: rgb(40, 40, 40);
-padding-top: 10;
+padding-top: 5;
 border: 2px solid white;</string>
       </property>
       <property name="inputMask">
@@ -266,7 +266,7 @@ border: 2px solid white;</string>
        <string>*******</string>
       </property>
       <property name="maxLength">
-       <number>32767</number>
+       <number>8</number>
       </property>
       <property name="frame">
        <bool>false</bool>
@@ -284,7 +284,7 @@ border: 2px solid white;</string>
         <x>220</x>
         <y>20</y>
         <width>241</width>
-        <height>31</height>
+        <height>16</height>
        </rect>
       </property>
       <property name="font">
@@ -913,9 +913,9 @@ QPushButton:focus {
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>80</y>
-        <width>171</width>
-        <height>31</height>
+        <y>65</y>
+        <width>191</width>
+        <height>16</height>
        </rect>
       </property>
       <property name="font">
@@ -930,7 +930,31 @@ QPushButton:focus {
        <string notr="true">color: rgb(255, 255, 255);</string>
       </property>
       <property name="text">
-       <string>Unlock Code:</string>
+       <string>User Number:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="passwordlabel_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>110</y>
+        <width>441</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Gotham Light</family>
+        <pointsize>14</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Call 080 3934 5910 for support</string>
       </property>
      </widget>
     </widget>
@@ -2457,7 +2481,7 @@ QScrollBar::down-arrow:vertical {
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>478</width>
+         <width>398</width>
          <height>630</height>
         </rect>
        </property>
