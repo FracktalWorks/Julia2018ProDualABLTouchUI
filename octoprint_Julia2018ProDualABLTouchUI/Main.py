@@ -293,20 +293,28 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         This method gets called when an object of type MainUIClass is defined
         '''
         super(MainUiClass, self).__init__()
+        formatter = logging.Formatter("%(asctime)s %(message)s")
         self._logger = logging.getLogger("TouchUI")
         file_handler = logging.FileHandler("/home/pi/ui.log")
-        file_handler.setFormatter(logging.Formatter("%(asctime)s %(message)s"))
+        file_handler.setFormatter(formatter)
+        stream_handler = logging.StreamHandler()
+        stream_handler.setFormatter(formatter)
         # file_handler.setLevel(logging.DEBUG)
         self._logger.addHandler(file_handler)
+        self._logger.addHandler(stream_handler)
 
 
         # Calls setupUi that sets up layout and geometry of all UI elements
         try:
-            self.__ahc = asset_bundle.AssetBundle()
-            self.__ahc.save_time()
-            self.__u = self.__ahc.read_match() if self.__ahc.time_delta() else True
-            print("Hardware ID = {}, Unlocked = {}".format(self.__ahc.hc(), self.__u))
-            print("File time = {}, Demo = {}".format(self.__ahc.read_time(), not self.__ahc.time_delta()))
+            self.__packager = asset_bundle.AssetBundle()
+            self.__packager.save_time()
+            self.__timelapse_enabled = self.__packager.read_match() if self.__packager.time_delta() else True
+            self.__timelapse_started = not self.__packager.time_delta()
+
+            self._logger.info("Hardware ID = {}, Unlocked = {}".format(self.__packager.hc(), self.__timelapse_enabled))
+            print("Hardware ID = {}, Unlocked = {}".format(self.__packager.hc(), self.__timelapse_enabled))
+            self._logger.info("File time = {}, Demo = {}".format(self.__packager.read_time(), self.__timelapse_started))
+            print("File time = {}, Demo = {}".format(self.__packager.read_time(), self.__timelapse_started))
             self.setupUi(self)
             self.stackedWidget.setCurrentWidget(self.loadingPage)
             self.setStep(10)
@@ -315,7 +323,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
             self.setHomeOffsetBool = False
             self.currentImage = None
             self.currentFile = None
-            self.sanityCheck = ThreadSanityCheck(self._logger, virtual=not self.__u)
+            self.sanityCheck = ThreadSanityCheck(self._logger, virtual=not self.__timelapse_enabled)
             self.sanityCheck.start()
             self.connect(self.sanityCheck, QtCore.SIGNAL('LOADED'), self.proceed)
             self.connect(self.sanityCheck, QtCore.SIGNAL('STARTUP_ERROR'), self.handleStartupError)
@@ -574,11 +582,14 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
 
     ''' +++++++++++++++++++++++++Lock Settings+++++++++++++++++++++++++++++++++++ '''
     def Lock_showLock(self):
-        self.pgLock_HID.setText(str(self.__ahc.hc()))
+        self.pgLock_HID.setText(str(self.__packager.hc()))
         self.pgLock_pin.setText("")
-        if not self.__u:
+        if not self.__timelapse_enabled:
+            dialog.WarningOk(self, "Machine locked!")
             self.stackedWidget.setCurrentWidget(self.pgLock)
         else:
+            if self.__timelapse_started:
+                dialog.WarningOk(self, "Demo mode!", overlay=True)
             self.stackedWidget.setCurrentWidget(self.homePage)
 
     def Lock_kbAdd(self, txt):
@@ -595,8 +606,9 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         t = self.pgLock_pin.text()
         try:
             k = int(t)
-            if self.__ahc.match(k):
-                self.__ahc.save(k)
+            if self.__packager.match(k):
+                self.__packager.save(k)
+                self.__timelapse_enabled = True
                 dialog.SuccessOk(self, "Machine unlocked!", overlay=True)
                 self.stackedWidget.setCurrentWidget(self.homePage)
             else:
@@ -622,7 +634,9 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
 
     def onServerConnected(self):
         self.isFilamentSensorInstalled()
-        if not self.__u:
+        if not self.__timelapse_enabled:
+            return
+        if self.__timelapse_started:
             return
         try:
             response = octopiclient.isFailureDetected()
@@ -1482,7 +1496,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
             self.changeFilamentButton.setDisabled(True)
             self.menuCalibrateButton.setDisabled(True)
             self.menuPrintButton.setDisabled(True)
-            if not self.__u:
+            if not self.__timelapse_enabled:
                 octopiclient.cancelPrint()
                 self.coolDownAction()
 
