@@ -7415,7 +7415,7 @@ class Ui_MainWindow(object):
         self.pgLock_bt4.setText(_translate("MainWindow", "4", None))
         self.pgLock_bt2.setText(_translate("MainWindow", "2", None))
         self.passwordlabel_4.setText(_translate("MainWindow", "User Number:", None))
-        self.passwordlabel_5.setText(_translate("MainWindow", "Call 080 3934 5910 for support", None))
+        self.passwordlabel_5.setText(_translate("MainWindow", "Call 080 4709 1810 for support", None))
         self.FileNameLabel.setText(_translate("MainWindow", "File:", None))
         self.printTimeLabel.setText(_translate("MainWindow", "Print Time:", None))
         self.fileName.setText(_translate("MainWindow", "fileName", None))
