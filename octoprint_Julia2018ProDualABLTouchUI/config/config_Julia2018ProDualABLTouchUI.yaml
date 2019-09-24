@@ -93,7 +93,7 @@ printerProfiles:
     color: default
     extruder:
       count: 2
-      nozzleDiameter: 0.4
+      nozzleDiameter: 0.6
       sharedNozzle: false
     heatedBed: true
     id: _default
@@ -117,6 +117,8 @@ server:
     systemShutdownCommand: sudo shutdown now
   firstRun: false
   host: 127.0.0.1
+  onlineCheck:
+    enabled: false
   pluginBlacklist:
     enabled: false
   secretKey: 1QM9QG2FnNY6AvLbTZWZ8k6N5L1qKzqk
