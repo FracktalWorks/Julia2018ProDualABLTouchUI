@@ -1206,11 +1206,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
                 octopiclient.startPrint()
         elif self.printerStatusText == "Printing":
             octopiclient.pausePrint()
-            self.activeExtruderPrint = self.activeExtruder
         elif self.printerStatusText == "Paused":
-            if self.activeExtruderPrint != self.activeExtruder:  # if the active extruder was chanegd between the print, change it back
-                octopiclient.selectTool(self.activeExtruderPrint)
-            octopiclient.pausePrint()
+            octopiclient.resumePrint()
 
     def fileListLocal(self):
         '''

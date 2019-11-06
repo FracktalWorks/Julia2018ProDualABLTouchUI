@@ -4,6 +4,9 @@
     <list default="true" id="ec902c82-8580-4889-8266-ca9c684d16ee" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py" afterPath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/__init__.py" afterPath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/octoprintAPI.py" afterPath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/octoprintAPI.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
     </list>
     <ignored path="Julia2018ProDualABLTouchUI.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,13 +26,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="1858" column="74" selection-start-line="1858" selection-start-column="74" selection-end-line="1858" selection-end-column="74" />
+            <state relative-caret-position="229">
+              <caret line="1198" column="0" selection-start-line="1198" selection-start-column="0" selection-end-line="1198" selection-end-column="0" />
               <folding>
                 <element signature="e#286#313#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="octoprintAPI.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/octoprintAPI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="251">
+              <caret line="223" column="26" selection-start-line="223" selection-start-column="26" selection-end-line="223" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,18 +53,18 @@
       <file leaf-file-name="config_Julia2018ProDualABLTouchUI.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/config/config_Julia2018ProDualABLTouchUI.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
+            <state relative-caret-position="2816">
               <caret line="128" column="7" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+            <state relative-caret-position="154">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -58,7 +73,7 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
+            <state relative-caret-position="417">
               <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding />
             </state>
@@ -73,10 +88,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/config/config_Julia2018ProDualABLTouchUI.yaml" />
+        <option value="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/octoprintAPI.py" />
+        <option value="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/__init__.py" />
-        <option value="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/config/config_Julia2018ProDualABLTouchUI.yaml" />
-        <option value="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py" />
       </list>
     </option>
   </component>
@@ -112,6 +128,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -164,7 +181,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -225,6 +241,40 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#286#313#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/config/config_Julia2018ProDualABLTouchUI.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2816">
+          <caret line="128" column="7" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13948">
@@ -487,37 +537,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/config/config_Julia2018ProDualABLTouchUI.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
+        <state relative-caret-position="2816">
           <caret line="128" column="7" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/octoprintAPI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="223" column="26" selection-start-line="223" selection-start-column="26" selection-end-line="223" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="1858" column="74" selection-start-line="1858" selection-start-column="74" selection-end-line="1858" selection-end-column="74" />
+        <state relative-caret-position="229">
+          <caret line="1198" column="0" selection-start-line="1198" selection-start-column="0" selection-end-line="1198" selection-end-column="0" />
           <folding>
             <element signature="e#286#313#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
