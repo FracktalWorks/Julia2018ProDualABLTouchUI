@@ -658,10 +658,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         try:
             response = octopiclient.isFailureDetected()
             if response["canRestore"] is True:
-                print "Restore is Possible"
                 self.printRestoreMessageBox(response["file"])
             else:
-                print"Restore is not possible"
                 self.firmwareUpdateCheck()
         except:
             pass
