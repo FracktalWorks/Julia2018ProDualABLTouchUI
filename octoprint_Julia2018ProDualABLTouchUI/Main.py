@@ -364,6 +364,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.pgLock)
         self.Lock_showLock()
         self.isFilamentSensorInstalled()
+        self.IPstatusThread = IPStatusThread()
+        self.IPstatusThread.start()
 
     def setActions(self):
 
@@ -388,6 +390,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         self.connect(self.QtSocket, QtCore.SIGNAL('Z_PROBING_FAILED'), self.showProbingFailed)
         self.connect(self.QtSocket, QtCore.SIGNAL('TOOL_OFFSET'), self.getToolOffset)
         self.connect(self.QtSocket, QtCore.SIGNAL('ACTIVE_EXTRUDER'), self.setActiveExtruder)
+        self.connect(self.QtSocket, QtCore.SIGNAL('IPSTATUS'), self.setIPStatus)
 
         # Text Input events
         self.connect(self.wifiPasswordLineEdit, QtCore.SIGNAL("clicked()"),
@@ -982,6 +985,11 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         scan_result = [s.strip('"') for s in scan_result]
         scan_result = filter(None, scan_result)
         return scan_result
+
+    def setIPStatus(self,ip):
+
+        self.ipStatus.setText("Not connected" if not ip else ip)
+
 
     ''' +++++++++++++++++++++++++++++++++Ethernet Settings+++++++++++++++++++++++++++++ '''
 
@@ -1848,7 +1856,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
     ''' ++++++++++++++++++++++++++++++Restore Defaults++++++++++++++++++++++++++++ '''
 
     def restoreFactoryDefaults(self):
-        if dialog.WarningYesNo(self, "Are you sure you want to restore machine state to factory defaults?\nWarning: Doing so will also reset printer profiles, WiFi & Ethernet config.",
+        if dialog.WarningYesNo(self, "Are you sure you want to restore machine state to factory defaults?\nWarning: Doing so will reset printer profiles, internet config and lock the machine.",
                                overlay=True):
             os.system('sudo cp -f config/dhcpcd.conf /etc/dhcpcd.conf')
             os.system('sudo cp -f config/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf')
@@ -1856,6 +1864,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
             os.system('sudo rm -rf /home/pi/.octoprint/printerProfiles/*')
             os.system('sudo rm -rf /home/pi/.octoprint/scripts/gcode')
             os.system('sudo cp -f config/config_Julia2018ProDualABLTouchUI.yaml /home/pi/.octoprint/config.yaml')
+            os.system('sudo cp -f /home/pi/.fw_logo.dat')
             self.tellAndReboot("Settings restored. Rebooting...")
 
     def restorePrintDefaults(self):
@@ -2092,6 +2101,23 @@ class ThreadFileUpload(QtCore.QThread):
             octopiclient.uploadGcode(file=self.file, select=True, prnt=True)
         else:
             octopiclient.uploadGcode(file=self.file, select=False, prnt=False)
+
+class IPStatusThread(QtCore.QThread):
+    def __init__(self):
+        super(IPStatusThread, self).__init__()
+
+    def run(self):
+        time.sleep(30)
+        try:
+            if getIP("eth0"):
+                self.emit(QtCore.SIGNAL('IPSTATUS'), getIP("eth0"))
+            elif getIP("eth0"):
+                self.emit(QtCore.SIGNAL('IPSTATUS'), getIP("wlan0"))
+            else:
+                self.emit(QtCore.SIGNAL('IPSTATUS'), None)
+        except:
+            self.emit(QtCore.SIGNAL('IPSTATUS'), None)
+
 
 
 class ThreadRestartNetworking(QtCore.QThread):
