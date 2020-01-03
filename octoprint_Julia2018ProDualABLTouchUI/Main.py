@@ -1864,7 +1864,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
             os.system('sudo rm -rf /home/pi/.octoprint/printerProfiles/*')
             os.system('sudo rm -rf /home/pi/.octoprint/scripts/gcode')
             os.system('sudo cp -f config/config_Julia2018ProDualABLTouchUI.yaml /home/pi/.octoprint/config.yaml')
-            os.system('sudo cp -f /home/pi/fw_logo.dat')
+            os.system('sudo rm -rf /home/pi/.fw_logo.dat')
             self.tellAndReboot("Settings restored. Rebooting...")
 
     def restorePrintDefaults(self):
@@ -2109,9 +2109,9 @@ class IPStatusThread(QtCore.QThread):
     def run(self):
         time.sleep(30)
         try:
-            if getIP("eth0"):
+            if getIP("eth0") is not None:
                 self.emit(QtCore.SIGNAL('IPSTATUS'), getIP("eth0"))
-            elif getIP("wlan0"):
+            elif getIP("wlan0") is not None:
                 self.emit(QtCore.SIGNAL('IPSTATUS'), getIP("wlan0"))
             else:
                 self.emit(QtCore.SIGNAL('IPSTATUS'), None)
