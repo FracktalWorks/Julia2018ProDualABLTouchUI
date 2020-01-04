@@ -364,8 +364,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         self.stackedWidget.setCurrentWidget(self.pgLock)
         self.Lock_showLock()
         self.isFilamentSensorInstalled()
-        self.IPstatusThread = IPStatusThread()
-        self.IPstatusThread.start()
+        self.setIPStatus()
 
     def setActions(self):
 
@@ -390,7 +389,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         self.connect(self.QtSocket, QtCore.SIGNAL('Z_PROBING_FAILED'), self.showProbingFailed)
         self.connect(self.QtSocket, QtCore.SIGNAL('TOOL_OFFSET'), self.getToolOffset)
         self.connect(self.QtSocket, QtCore.SIGNAL('ACTIVE_EXTRUDER'), self.setActiveExtruder)
-        self.connect(self.QtSocket, QtCore.SIGNAL('IPSTATUS'), self.setIPStatus)
 
         # Text Input events
         self.connect(self.wifiPasswordLineEdit, QtCore.SIGNAL("clicked()"),
@@ -950,6 +948,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
             self.wifiMessageBox.setLocalIcon('success.png')
             self.wifiMessageBox.setText('Connected, IP: ' + x)
             self.wifiMessageBox.setStandardButtons(QtGui.QMessageBox.Ok)
+            self.ipStatus.setText(x) #sets the IP addr. in the status bar
+
         else:
             self.wifiMessageBox.setText("Not able to connect to WiFi")
 
@@ -960,6 +960,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         self.hostname.setText(getHostname())
         self.wifiAp.setText(getWifiAp())
         self.wifiIp.setText("Not connected" if not ipWifi else ipWifi)
+        self.ipStatus.setText("Not connected" if not ipWifi else ipWifi)
         self.lanIp.setText("Not connected" if not ipEth else ipEth)
         self.wifiMac.setText(getMac(ThreadRestartNetworking.WLAN))
         self.lanMac.setText(getMac(ThreadRestartNetworking.ETH))
@@ -986,9 +987,23 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         scan_result = filter(None, scan_result)
         return scan_result
 
-    def setIPStatus(self,ip):
+    @run_async
+    def setIPStatus(self):
+        '''
+        Function to update IP address of printer on the status bar. Refreshes at a particular interval.
+        '''
+        while(True):
+            try:
+                if getIP("eth0"):
+                    self.ipStatus.setText(getIP("eth0"))
+                elif getIP("wlan0"):
+                    self.ipStatus.setText(getIP("wlan0"))
+                else:
+                    self.ipStatus.setText("Not connected")
 
-        self.ipStatus.setText("Not connected" if not ip else ip)
+            except:
+                self.ipStatus.setText("Not connected")
+            time.sleep(60)
 
 
     ''' +++++++++++++++++++++++++++++++++Ethernet Settings+++++++++++++++++++++++++++++ '''
@@ -2101,22 +2116,6 @@ class ThreadFileUpload(QtCore.QThread):
             octopiclient.uploadGcode(file=self.file, select=True, prnt=True)
         else:
             octopiclient.uploadGcode(file=self.file, select=False, prnt=False)
-
-class IPStatusThread(QtCore.QThread):
-    def __init__(self):
-        super(IPStatusThread, self).__init__()
-
-    def run(self):
-        try:
-            if getIP("eth0"):
-                self.emit(QtCore.SIGNAL('IPSTATUS'), getIP("eth0"))
-            elif getIP("wlan0"):
-                self.emit(QtCore.SIGNAL('IPSTATUS'), getIP("wlan0"))
-            else:
-                self.emit(QtCore.SIGNAL('IPSTATUS'), None)
-        except:
-            self.emit(QtCore.SIGNAL('IPSTATUS'), None)
-        time.sleep(30)
 
 
 
