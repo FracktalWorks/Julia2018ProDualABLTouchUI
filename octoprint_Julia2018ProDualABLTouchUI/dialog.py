@@ -10,6 +10,15 @@ except AttributeError:
 
 
 def font(size=14, weight=50, bold=False, underline=False, strikeout=False):
+    '''
+    Function that configures the font
+    :param size:        px size of font
+    :param weight:      Weight of font
+    :param bold:        if bold or not
+    :param underline:
+    :param strikeout:
+    :return:            QFont object
+    '''
     font = QtGui.QFont()
     # QtGui.QInputMethodEvent
     font.setFamily(_fromUtf8("Gotham"))

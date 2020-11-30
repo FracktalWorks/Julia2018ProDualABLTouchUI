@@ -106,11 +106,17 @@ filaments = [
 
 filaments = OrderedDict(filaments)
 
+#values before 2020 changes
+# calibrationPosition = {'X1': 340, 'Y1': 42,
+#                        'X2': 30, 'Y2': 42,
+#                        'X3': 185, 'Y3': 352,
+#                        'X4': 185, 'Y4': 42
+#                        }
 
-calibrationPosition = {'X1': 340, 'Y1': 42,
-                       'X2': 30, 'Y2': 42,
-                       'X3': 185, 'Y3': 352,
-                       'X4': 185, 'Y4': 42
+calibrationPosition = {'X1': 336, 'Y1': 33,
+                       'X2': 27, 'Y2': 33,
+                       'X3': 183, 'Y3': 343,
+                       'X4': 183, 'Y4': 33
                        }
 
 try:
@@ -1219,6 +1225,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         '''
         if dialog.WarningYesNo(self, "Are you sure you want to stop the print?"):
             octopiclient.cancelPrint()
+            dialog.SuccessOk(self,"What was the reason for cancelling the print?")
+
 
     def playPauseAction(self):
         '''
