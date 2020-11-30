@@ -1,7 +1,9 @@
 # Julia Pro Dual ABL  Touch UI
 ==============================
 
-##Functional Block Diagram
+## Functional Block Diagram
+
+![alt-text](https://github.com/FracktalWorks/Julia2018ProDualABLTouchUI/blob/master/documentation/basic_blockdiagram.JPG?raw=true "Firmware Functional BLock Diagram")
 
 * `MainWindow` is the object of `MainUiClass` class and this is the workhorse of the firmware where all the slots and event definitions are defined within this class. 
 * `mainGUI_pro_dual_abl` is inherited by the `MainUiClass` class.
