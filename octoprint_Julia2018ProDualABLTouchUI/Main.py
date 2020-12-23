@@ -1225,7 +1225,6 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
         '''
         if dialog.WarningYesNo(self, "Are you sure you want to stop the print?"):
             octopiclient.cancelPrint()
-            dialog.SuccessOk(self,"What was the reason for cancelling the print?")
 
 
     def playPauseAction(self):
