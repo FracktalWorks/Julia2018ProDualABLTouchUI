@@ -669,6 +669,7 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
             else:
                 self.firmwareUpdateCheck()
         except:
+            print "error on Server Connected"
             pass
 
     ''' +++++++++++++++++++++++++Filament Sensor++++++++++++++++++++++++++++++++++++++ '''
@@ -1213,7 +1214,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
                 self.changeFilamentComboBox.setCurrentIndex(index)
 
     def changeFilamentCancel(self):
-        self.changeFilamentHeatingFlag = False
+        self.changeFilamentHeatingFlag = Falseelse:
+                self.firmwareUpdateCheck()
         self.coolDownAction()
         self.control()
 
