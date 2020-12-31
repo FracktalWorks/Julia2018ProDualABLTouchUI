@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec902c82-8580-4889-8266-ca9c684d16ee" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Julia2018ProDualABLTouchUI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Julia2018ProDualABLTouchUI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="bb46e3c2-a782-44cd-917d-ea6c1b7a6e7c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/octoprint_Julia2018ProDualABLTouchUI/__init__.py" afterDir="false" />
@@ -16,9 +14,6 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="Julia2018ProDualABLTouchUI" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

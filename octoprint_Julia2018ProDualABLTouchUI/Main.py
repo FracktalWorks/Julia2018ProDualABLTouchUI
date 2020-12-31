@@ -1214,8 +1214,8 @@ class MainUiClass(QtGui.QMainWindow, mainGUI_pro_dual_abl.Ui_MainWindow):
                 self.changeFilamentComboBox.setCurrentIndex(index)
 
     def changeFilamentCancel(self):
-        self.changeFilamentHeatingFlag = Falseelse:
-                self.firmwareUpdateCheck()
+        self.changeFilamentHeatingFlag = False
+        self.firmwareUpdateCheck()
         self.coolDownAction()
         self.control()
 
